@@ -1,6 +1,7 @@
 import React from "react"
 import { useGetCountryByNameQuery } from "../../store/counter/counterApi"
 import { Params, useNavigate, useParams } from "react-router-dom"
+import { Button } from "@mui/material"
 
 const CountryChosen = () => {
 	const { name } = useParams()
@@ -19,12 +20,10 @@ const CountryChosen = () => {
 	}
 	return (
 		<div>
-			<button
-				className="country__back-btn"
-				onClick={handleClickBackToCountries}
-			>
+			<Button onClick={handleClickBackToCountries} variant="contained">
 				Вернуться назад к списку стран
-			</button>
+			</Button>
+
 			<h1>Страна:{data[0].name.common}</h1>
 			<h3>Столица:{data[0].capital[0]}</h3>
 			<h4>Населения:{data[0].population}</h4>
